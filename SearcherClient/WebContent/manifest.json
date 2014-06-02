@@ -1,0 +1,30 @@
+{
+	"name": "Search History",
+	"version": "0.1.1",
+	"manifest_version": 2,
+	"description": "Search Your Own History",
+	"background": {
+
+        "scripts": ["jquery-2.0.3.js", "background.js","oauth2.js"]
+	},
+
+    "browser_action":{
+        "default_icon": "h.png",
+        "default_title":"H"
+
+    },
+    "content_security_policy": "script-src 'self' 'unsafe-eval'; object-src 'self'",
+    "oauth2":{
+        "client_id":"399405825466-3nnpubc514o2lrgob10h9uifbdvkkvba.apps.googleusercontent.com",
+        "scopes":["https://www.googleapis.com/auth/plus.login"]
+    },
+    "permissions": ["tabs", "<all_urls>", "http://112.108.40.87:8080/Lucene4.3-Server-rev02/indexWrite.jsp",
+        "http://112.108.40.87:8080/Lucene4.3-Server-rev02/ChromeHistory_input.jsp",
+        "history", "http://code.jquery.com/",
+        "https://accounts.google.com/*",
+        "identity",
+        "https://www.googleapis.com/*",
+
+
+    "background"]
+}
