@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="euc-kr" ?>
+<!DOCTYPE log4j:configuration SYSTEM "log4j.dtd">
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/">
+
+   <appender name="console" class="org.apache.log4j.ConsoleAppender">
+    <layout class="org.apache.log4j.PatternLayout">
+      <param name="ConversionPattern" value="{%d{yyyy-MM-dd HH:mm:ss.SSS}} [%5p] [%C] %m%n"/>
+    </layout>
+  </appender>
+  
+  <appender name="rollingInfo" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="Threshold" value="DEBUG" />
+		<param name="File" value="${LuceneTest}/logs/info.log" />
+		<param name="Append" value="true" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="{%d{yyyy-MM-dd HH:mm:ss.SSS}} [%5p] [%C] %m%n" />
+		</layout>
+	</appender>
+
+	<appender name="rollingWarn" class="org.apache.log4j.DailyRollingFileAppender">
+		<param name="Threshold" value="ERROR" />
+		<param name="File"
+			value="${LuceneTest}/logs/error.log" />
+		<param name="Append" value="true" />
+		<layout class="org.apache.log4j.PatternLayout">
+			<param name="ConversionPattern" value="{%d{yyyy-MM-dd HH:mm:ss.SSS}} [%5p] [%C] %m%n" />
+		</layout>
+	</appender>
+    
+  <category name="INDEXER_LOG">
+  	<level value="TRACE" />
+  	<appender-ref ref="console"/>
+  	<appender-ref ref="rollingInfo"/>  	
+    <appender-ref ref="rollingWarn"/>          
+  </category>
+  
+	<category name="out.println">
+		<appender-ref ref="console"/>
+		
+	</category>
+	
+	
+	
+	
+</log4j:configuration>

@@ -1,0 +1,32 @@
+<?xml version="1.0" encoding="UTF-8"?><project-modules id="moduleCoreId" project-version="1.5.0">
+    <wb-module deploy-name="Lucene4.3-Server">
+        <wb-resource deploy-path="/" source-path="/WebContent" tag="defaultRootSource"/>
+        <wb-resource deploy-path="/WEB-INF/classes" source-path="/src"/>
+        <dependent-module archiveName="lucene-analyzers-common-4.3.0.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/lucene-analyzers-common-4.3.0/lucene-analyzers-common-4.3.0">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="lucene-highlighter-4.3.0.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/lucene-highlighter-4.3.0/lucene-highlighter-4.3.0">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="koreananalyzer.4x-20130430.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/koreananalyzer.4x-20130430/koreananalyzer.4x-20130430">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="jdom.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/jdom/jdom">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="lucene-core-4.3.0.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/lucene-core-4.3.0/lucene-core-4.3.0">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="lucene-queryparser-4.3.0.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/lucene-queryparser-4.3.0/lucene-queryparser-4.3.0">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="log4j-1.2.16.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/log4j-1.2.16/log4j-1.2.16">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <dependent-module archiveName="lucene-queries-4.3.0.jar" deploy-path="/WEB-INF/lib/" handle="module:/resource/lucene-queries-4.3.0/lucene-queries-4.3.0">
+            <dependency-type>uses</dependency-type>
+        </dependent-module>
+        <property name="java-output-path" value="/Lucene4.3-Server/build/classes"/>
+        <property name="context-root" value="Lucene4.3-Server"/>
+    </wb-module>
+</project-modules>

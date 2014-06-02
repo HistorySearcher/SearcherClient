@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <title>Insert title here</title>
+    <style type="text/css">
+        div#view{
+            width: 500px;
+            height: 100px;
+            border-radius: 10px;
+            border: 1px solid black;
+        }
+
+        .java{
+            width: 100%;
+            height: 100%;
+            background-color: lightsteelblue;
+            color: white;
+            font-size: 3em;
+        }
+
+        .ms{
+            width: 100%;
+            height: 100%;
+            background-color: red;
+            color: yellow;
+            font-size: 3em;
+        }
+    </style>
+
+    <script type="text/javascript" src="js/httpRequest.js"></script>
+    <script type="text/javascript">
+
+        function exe(obj){ // obj는 select
+            var str = obj.value;
+            var param = "v1="+str;
+
+            sendRequest("test1.jsp", param, res, "post", true);
+        }
+
+        function res(){
+            // readyStatus - XMLHTTPRequest 객체의 상태가 변할 때 각 상태값을 반환한다.
+            //    0 = uninitialized
+            //	  1 = loading
+            //	  2 = loaded
+            //	  3 = interactive
+            //	  4 = complete
+            // status - HTTP 응답코드를 반환한다. 성공일 경우 200
+
+            if(xhr.readyState == 4 && xhr.status == 200){
+                // 현재 문서에서 id가 view인 객체를 검색한다.
+                var v = document.getElementById("view");
+                v.innerHTML = xhr.responseText;	// 응답된 문자 받기
+            }
+        }
+    </script>
+</head>
+
+
+<script type="text/javascript">
+
+</script>
+<body>
+<select onchange="exe(this)"> <!-- 여기서 this는 select -->
+    <option value="java">자바</option>
+    <option value="ms">마이크로소프트</option>
+</select>
+<div id="view">
+    <!-- 서버로부터 전달된 응답 내용이 표현될 곳! -->
+</div>
+</body>
+</html>
