@@ -17,7 +17,7 @@
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 
 <html lang="en">
- 
+
 <head>
 	<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
 	<link rel="stylesheet" type="text/css" href="style.css">
@@ -273,8 +273,14 @@
 					
 					
 						System.out.println("inputPage");
-						String userName=request.getParameter("user"); 
-						System.out.println("user: " + userName);
+						
+						String userName=request.getParameter("user");
+						session.setAttribute("id", userName);
+						String users = (String)session.getAttribute("id");
+						
+						
+						
+						System.out.println("user: " + users);
 					
 						
 					
@@ -288,12 +294,11 @@
 								           			
 								           		
 								           			//String userName="hajeong";
-								           			System.out.println("FPFPFPFPFP_UserName: " + userName);
+								           			System.out.println("FPFPFPFPFP_UserName: " + users);
 								           		
 								           			String query="2014";
-								           	
 								           			
-								           			List<LogBean> beans = SearchEngineSorter.search(userName, query); 
+								           			List<LogBean> beans = SearchEngineSorter.search(users, query); 
 								           			//List<LogBean> beans = SearchEngineSorter.search(userName); 
 								           			
 								           			String user ="";
@@ -332,7 +337,7 @@
 						<form action="ChromeHistory_output.jsp"> <!-- ChromeHistory_input -->						
 							<!--  <input type="submit" value="Search"/> -->
 							<input name="query" placeholder="Search title, url, or content" type="text" value=""><br>
-							<!--<input name="user" type="text" value<%//=userName%>><br>-->
+			
 							<!--<input name="user" type="text" value=hajeong><br> -->
 							<button type="submit" value="Search" style="visibility: hidden">Search</button> 
 						</form> <!-- ChromeHistory_input -->
@@ -350,13 +355,13 @@
 							        	if(pages==i)
 							        	{
 							        		%><li>
-							        		<a href="http://localhost:9080/Lucene4.3-Server_test/ChromeHistory_input.jsp?pages=<%=i%>" data-page="<%out.print(i);%>" class="selected"><%out.print(i);%></a>
+							        		<a href="http://112.108.40.87:8080/Lucene4.3-Server/ChromeHistory_input.jsp?user=<%=users %>&pages=<%=i%>" data-page="<%out.print(i);%>" class="selected"><%out.print(i);%></a>
 							        		</li><%
 							        	}
 							        	else
 							        	{
 							        		%><li>
-							        		<a href="http://localhost:9080/Lucene4.3-Server_test/ChromeHistory_input.jsp?pages=<%=i%>" data-page="<%out.print(i);%>" class><%out.print(i);%></a>
+							        		<a href="http://112.108.40.87:8080/Lucene4.3-Server/ChromeHistory_input.jsp?user=<%=users %>&pages=<%=i%>" data-page="<%out.print(i);%>" class><%out.print(i);%></a>
 							        		</li><%							
 								        }
 							  		 }//for(page)

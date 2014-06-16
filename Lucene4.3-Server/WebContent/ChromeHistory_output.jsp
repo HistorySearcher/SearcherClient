@@ -276,9 +276,21 @@
 							<button type="submit" value="Search" style="visibility: hidden">Search</button> 
 						</form> <!-- ChromeHistory_input -->
 					</div>
+					
+					<%
+					request.setCharacterEncoding("UTF-8");
+           			if (request.getParameterMap().size() == 0)
+           				return;
+           			
+           			System.out.println("outputPage");
+           			//String userName=request.getParameter("user");
+           			String userName = session.getAttribute("id").toString();
+           			String query=request.getParameter("query");
+					
+					%>
 					<div class="controls">
 						<!--<a class="text back_to_week" href="#weeks/12-23-13">  ← Back to Week   </a> --> <!-- ★★★★★전 주 주소 받아오기 -->						 
-						<div class="spacer"> Search Service in Chrome History</div>
+						<div class="spacer"><a href="http://112.108.40.87:8080/Lucene4.3-Server/ChromeHistory_input.jsp?user=<%=userName%>&pages=1"> ← Back to Sorting of time</a></div>
 						<!-- <button class="delete_day">     Delete ...    </button> -->   <!-- ★★★★★방문한 주소 전체 지우기/-->
 					</div>
 				</header>
@@ -295,11 +307,7 @@
 								    <!-- ★★★★★list 단위로 제목 & url 나타냄 (마우스 오버롤 기능 있음+ delete) -->
 								    <% 
 										
-													request.setCharacterEncoding("UTF-8");
-								           			if (request.getParameterMap().size() == 0)
-								           				return;
-								           			String userName=request.getParameter("user");
-								           			String query=request.getParameter("query");
+													
 								           			
 								           			List<LogBean> beans = SearchEngine.search(userName, query);
 								           			
